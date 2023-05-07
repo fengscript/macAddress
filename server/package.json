@@ -1,0 +1,27 @@
+{
+  "name": "mac_address_capture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build": "PKG_CACHE_PATH=../pkgCache pkg package.json --debug"
+  },
+  "author": "young",
+  "pkg": {
+    "scripts": "app.js",
+    "assets": [
+      "localhost.crt",
+      "localhost.key"
+    ],
+    "targets": [
+      "node14-macos-x64",
+      "node14-win-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "bin": "app.js",
+  "dependencies": {
+    "os-service": "^2.2.0"
+  }
+}

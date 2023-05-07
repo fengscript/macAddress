@@ -1,0 +1,80 @@
+
+<script>
+  
+
+(function() {
+    'use strict';
+//localhost
+
+  function getMacAddress(){
+console.log('start');
+fetch('https://127.0.0.1:8001/macAddress', {
+  method: 'GET'
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
+};
+window.getMacAddress = getMacAddress;
+
+})();
+</script>
+
+"dependencies": {
+  "cors": "^2.8.5",
+  "express": "^4.18.2"
+},
+
+
+
+// var express = require('express');
+// var cors = require('cors');
+// var app = express();
+
+// app.use(cors());
+
+// app.get('/macAddress', function (req, res, next) {
+//   res.json({ msg: networkInterfaces });
+// });
+
+// // app.listen(port, function () {
+// //   console.log(`CORS-enabled web server listening on port ${port}`);
+// // });
+
+// const server = https.createServer(options, app);
+// server.listen(port, () => {
+//     console.log(`Server run at ${port}`);
+// })
+
+
+
+// exec('sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ./localhost.crt', (err, stdout, stderr) => {
+//   if(err) {
+//       console.log(err);
+//       return;
+//   }
+//   console.log(`stdout: install cert...  ${stdout}`);
+//   console.log(`stderr: ${stderr}`);
+// })
+// exec('certutil -addstore -f "ROOT" localhost.crt', (err, stdout, stderr) => {
+
+
+
+// const crtPath = path.join(__dirname, 'localhost.key');
+// exec(`certutil -addstore -f "ROOT" ${crtPath}`,(err, stdout, stderr) => {
+//   if(err) {
+//       console.log(err);
+//       return;
+//   }
+//   console.log(`stdout: install cert...  ${stdout}`);
+//   console.log(`stderr: ${stderr}`);
+// })
+
+// exec(`dir`, (err, stdout, stderr) => {
+//   if(err) {
+//       console.log(err);
+//       // return;
+//   }
+//   console.log(`stdout:  ${stdout}`);
+//   console.log(`stderr: ${stderr}`);
+// })
