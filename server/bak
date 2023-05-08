@@ -1,3 +1,8 @@
+C:\snapshot\server
+server run at 8001
+Error: Command failed: certutil -addstore -f "ROOT" /Users/fengyanggang/Desktop/Code/0_others/macAddress/server/cert/CA/CA.pem
+'\\Mac\AllFiles\Users\fengyanggang\Desktop\Code\0_others\macAddress\server\dist'
+
 
 <script>
   
@@ -8,7 +13,7 @@
 
   function getMacAddress(){
 console.log('start');
-fetch('https://127.0.0.1:8001/macAddress', {
+fetch('https://localhost:8001/macAddress', {
   method: 'GET'
 })
 .then(response => response.json())
@@ -48,27 +53,27 @@ window.getMacAddress = getMacAddress;
 
 
 
-// exec('sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ./localhost.crt', (err, stdout, stderr) => {
-//   if(err) {
-//       console.log(err);
-//       return;
-//   }
-//   console.log(`stdout: install cert...  ${stdout}`);
-//   console.log(`stderr: ${stderr}`);
-// })
+exec('sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ./localhost.crt', (err, stdout, stderr) => {
+  if(err) {
+      console.log(err);
+      return;
+  }
+  console.log(`stdout: install cert...  ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+})
 // exec('certutil -addstore -f "ROOT" localhost.crt', (err, stdout, stderr) => {
 
 
 
-// const crtPath = path.join(__dirname, 'localhost.key');
-// exec(`certutil -addstore -f "ROOT" ${crtPath}`,(err, stdout, stderr) => {
-//   if(err) {
-//       console.log(err);
-//       return;
-//   }
-//   console.log(`stdout: install cert...  ${stdout}`);
-//   console.log(`stderr: ${stderr}`);
-// })
+const crtPath = path.join(__dirname, 'localhost.key');
+exec(`certutil -addstore -f "ROOT" localhost.crt`,(err, stdout, stderr) => {
+  if(err) {
+      console.log(err);
+      return;
+  }
+  console.log(`stdout: install cert...  ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+})
 
 // exec(`dir`, (err, stdout, stderr) => {
 //   if(err) {

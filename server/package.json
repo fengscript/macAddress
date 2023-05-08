@@ -5,14 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "PKG_CACHE_PATH=../pkgCache pkg package.json --debug"
+    "build": "PKG_CACHE_PATH=../pkgCache pkg . -t --debug"
   },
   "author": "young",
   "pkg": {
     "scripts": "app.js",
     "assets": [
-      "localhost.crt",
-      "localhost.key"
+      "cert/**/*"
     ],
     "targets": [
       "node14-macos-x64",
@@ -20,8 +19,5 @@
     ],
     "outputPath": "dist"
   },
-  "bin": "app.js",
-  "dependencies": {
-    "os-service": "^2.2.0"
-  }
+  "bin": "app.js"
 }
